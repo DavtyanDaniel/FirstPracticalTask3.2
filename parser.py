@@ -1,10 +1,9 @@
 """
-
+This module is for opening, parsing, and writing tsv and csv files.
 """
-# TODO write comments
 from datetime import datetime
 
-from stars_filtering import filtering_by_coordinates
+from stars_sorting_and_filtering import filtering_by_coordinates
 import constants
 
 
@@ -35,11 +34,8 @@ def open_and_parse_file(file_name, range_of_square):
 
 def write_the_file(filtered_stars: list):
     """
-
-    :param filtered_stars:
-    :return:
+    Function taking filtered_stars list with instances creating and writing them in csv file
     """
-    # TODO write comments
     with open(f"{datetime.now()}.csv", 'w') as f:
         header = "ID, RA, DEC, Magnitude, Dis_from_gv_point\n"
         f.write(header)

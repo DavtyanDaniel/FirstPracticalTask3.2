@@ -1,7 +1,6 @@
 """
-
+Module for all constants
 """
-# TODO write comments
 import configparser
 
 config = configparser.ConfigParser()

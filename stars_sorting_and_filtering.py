@@ -1,7 +1,6 @@
 """
-
+Every function that related to filtering and sorting are here.
 """
-# TODO write comments
 from random import randint
 
 from stars import Stars
@@ -10,7 +9,7 @@ import constants
 
 def computing_range_of_square(ra, dec, fov_h, fov_v) -> tuple:
     """
-    calculating the range of given FOV
+    Calculating the range of given FOV
     """
     # square's weight left number
     square_w_l = ra - fov_h / 2
@@ -32,7 +31,6 @@ def filtering_by_coordinates(row: list,
     filtering by ra/dec coordinates, for that we have to know the range of FOV, that's
     why in parameters list we have range of it.
     """
-    # included_cols = [5, 6, 7, 22]   The columns that we needed(ra, dec, id, mag)
     if (square_w_l <= float(row[0]) <= square_w_r) and (square_h_l <= float(row[1]) <= square_h_r):
         return Stars(float(row[constants.RA_INDEX]),
                      float(row[constants.DEC_INDEX]),
@@ -41,31 +39,31 @@ def filtering_by_coordinates(row: list,
 
 
 def quicksort(array: list, key, reverse: bool) -> list:
-        """
-        quicksort sorting algorithm that takes an array, getter function, and sort direction and returns a sorted array
-        """
-        if len(array) < 2:
-            return array
-        left = []
-        same = []
-        right = []
-        delimiter = key(array[randint(0, len(array) - 1)])
-        for item in array:
-            value = key(item)
-            if value > delimiter:
-                if reverse is False:
-                    left.append(item)
-                else:
-                    right.append(item)
-            elif value == delimiter:
-                same.append(item)
-            elif value < delimiter:
-                if reverse is False:
-                    right.append(item)
-                else:
-                    left.append(item)
-        sorted_array = quicksort(left, key, reverse) + same + quicksort(right, key, reverse)
-        return sorted_array
+    """
+    quicksort sorting algorithm that takes an array, key function, and sort direction and returns a sorted array
+    """
+    if len(array) < 2:
+        return array
+    left = []
+    same = []
+    right = []
+    delimiter = key(array[randint(0, len(array) - 1)])
+    for item in array:
+        value = key(item)
+        if value > delimiter:
+            if reverse is False:
+                left.append(item)
+            else:
+                right.append(item)
+        elif value == delimiter:
+            same.append(item)
+        elif value < delimiter:
+            if reverse is False:
+                right.append(item)
+            else:
+                left.append(item)
+    sorted_array = quicksort(left, key, reverse) + same + quicksort(right, key, reverse)
+    return sorted_array
 
 
 def get_mag(item):
@@ -78,6 +76,3 @@ def get_dis(item):
 
 def mag_slicing(array: list, n: int) -> list:
     return array[:n]
-
-
-

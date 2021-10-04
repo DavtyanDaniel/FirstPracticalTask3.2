@@ -1,15 +1,14 @@
 """
-
+Module for Stars class.
 """
-# TODO write comments
 import constants
 
 
 class Stars:
     """
-
+    Stars class that has an star_id, ra, dec, mag, euclidean_distance that are respectively
+    stands for ID of star, right ascension, declination, magnitude and euclidean distance
     """
-    # TODO write comments
     def __init__(self, ra, dec, star_id, mag):
         self.star_id = star_id
         self.ra = ra
