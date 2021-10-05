@@ -1,9 +1,8 @@
-#Introduction
+
+# Introduction
 The project is a task for FreeDOM Astronomy's internship program.It's aim to test python knowledge and skills.
 
 The script takes ra, dec, id, mag of a star from .tsv file and using them for creating a list of N the brightest stars sorted by distance from a given RA, DEC coordinates.
-
-
 
 # Table of Content
 * [System Requirements](#system-requirements)
